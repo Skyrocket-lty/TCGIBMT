@@ -43,12 +43,12 @@ def DCInner(S,mu,T_k,gam):
 #上面是求奇异值的，下面是求L2，1范数的
 
 def GAMA(H,A,B):
-    muzero = 15 #Dataset 2:r=1----Dataset 3:r=15--Dataset 4:r=30-Dataset 5:r=100
+    muzero = 15 #Dataset 2:r=1----Dataset 3:r=15--Dataset 4:r=30-Dataset 5:r=100--Dataset 6:r=35
     mu = muzero
-    gamma = 0.06#Dataset 2:gama=10----Dataset 3:gama=30--Dataset 4:gama=3--Dataset 5:gama=50
-    rho = 2 #Dataset 2:rho=2----Dataset 3:rho=20---Dataset 4:rho=15---Dataset 5:rho=100
+    gamma = 0.06#Dataset 2:gama=10----Dataset 3:gama=30--Dataset 4:gama=3--Dataset 5:gama=50--Dataset 6:gama=0.06
+    rho = 2 #Dataset 2:rho=2----Dataset 3:rho=20---Dataset 4:rho=15---Dataset 5:rho=100---Dataset 6:rho=2
     tol = 1e-3
-    alpha = 2 #Dataset 2:alpha=2----Dataset 3:alpha=15--Dataset 4:alpha=5--Dataset 5:alpha=100
+    alpha = 2 #Dataset 2:alpha=2----Dataset 3:alpha=15--Dataset 4:alpha=5--Dataset 5:alpha=100--Dataset 6:alpha=2
 
 
     m, n = np.shape(H)
@@ -83,9 +83,9 @@ def GAMA(H,A,B):
 
 
 def truncated(H0):
-    for i in range(0,2):#Dataset 2:=1#Dataset 3:=5#Dataset 4:=1#Dataset 5:=5
+    for i in range(0,2):#Dataset 2:=1#Dataset 3:=5#Dataset 4:=1#Dataset 5:=5，Dataset 6:=2
         U, S, V = np.linalg.svd(H0)
-        r = 20# Dataset 2：r=1;Dataset 3：r=15;Dataset 4：r=11;Dataset 5：r=20;
+        r = 20# Dataset 2：r=1;Dataset 3：r=15;Dataset 4：r=11;Dataset 5：r=20;Dataset 6：r=1;
         A = U[:, :r]
         B = V[:r, :]
         H0 = GAMA(H0,A,B)
