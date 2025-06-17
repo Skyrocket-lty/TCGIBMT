@@ -151,4 +151,4 @@ if __name__ == "__main__":
         total=total+l
         time +=1
         print(time,total/time)
-        print("\n")
+
